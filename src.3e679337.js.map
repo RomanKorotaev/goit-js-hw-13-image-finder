@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":["console","log"],"mappings":";;;AAEA,aAFA,QAAA,oBAEAA,QAAQC,IAAI","file":"src.3e679337.js","sourceRoot":"../src","sourcesContent":["import './sass/main.scss';\n\nconsole.log('Домашнее задание №13 по JS: goit-js-hw-13-image-finder');\n"]}
