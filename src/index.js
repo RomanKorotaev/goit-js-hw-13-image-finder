@@ -9,21 +9,40 @@ console.log('Домашнее задание №13 по JS: goit-js-hw-13-image-
 const refs = {
     searchForm: document.querySelector('#search-form'),
     input: document.querySelector('#input'),
-    gallery: document.querySelector('.gallery')
+    gallery: document.querySelector('.gallery'),
+    loadMore: document.querySelector('#loadMore')
 }
 
 let pageCounter = 1;
 
+//---------------------
+
+function handleButtonClick() {
+  refs.loadMore.scrollIntoView({block: "end", behavior: "smooth"});
+   // btm2.scrollIntoView({block: "end", behavior: "smooth"});
+}
+//---------------------
+
+
  // Пример запроса на бекенд через  библиотеку axios: npm install axios
  // сначала установить ее через коменду npm install, а потом экспортируем в файл index.js: import axios from 'axios';
 const hndlerSubmit = (event) => {
-    event.preventDefault()  // сброс настроек по умолчанию
+   event.preventDefault()  // сброс настроек по умолчанию
     const value = refs.input.value;
     console.log(value)
 
-axios.get(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${value}&page=${pageCounter}&per_page=12&key=23193680-1d95b6a7ab6e160162f942df5 `)
-    .then(result => { renderCollection(result.data.hits); console.log ("result.data.hits = ", result.data.hits) })
-    .catch(err => console.log(err))   
+ const axiosPrpmice = axios.get(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${value}&page=${pageCounter}&per_page=12&key=23193680-1d95b6a7ab6e160162f942df5 `)
+        .then(result => { renderCollection(result.data.hits); console.log("result.data.hits = ", result.data.hits);  })
+        .then(() => { pageCounter++; } ) // увеличиваем счётчик после каждого запроса
+     .catch(err => console.log(err))
+    
+    const scrollingWithDelay = async () => {
+        console.log ("Вызвана функция scrollingWithDelay")
+        const result = await axiosPrpmice;
+        console.log (' typeof axiosPrpmice', typeof axiosPrpmice)
+     }
+    
+    scrollingWithDelay();
     
 }
 
@@ -42,6 +61,32 @@ function renderCollection(arr) {
 
 
 
-refs.searchForm.addEventListener('submit', hndlerSubmit)
+refs.searchForm.addEventListener('submit', hndlerSubmit);
+refs.loadMore.addEventListener('click', hndlerSubmit);
+
+//console.log("TEST: ", hndlerSubmit('click'));
+
+/*
+//Страница должна автоматически плавно проскроливаться после рендера изображений, чтобы перевести пользователя на
+//следующие загруженные изображения.Используй метод Element.scrollIntoView().
+
+function handleButtonClick() {
+   refs.loadMore.scrollIntoView({block: "center", behavior: "smooth"});
+}
 
 
+refs.loadMore.addEventListener('click', handleButtonClick)
+*/
+
+// var hiddenElementLoadMore = document.getElementById("loadMore");
+// var btn = document.querySelector('.loadMore');
+
+// const btm2 =document.querySelector('#loadMoreContainer'); 
+
+// function handleButtonClick() {
+//   refs.gallery.scrollIntoView({block: "end", behavior: "smooth"});
+//    // btm2.scrollIntoView({block: "end", behavior: "smooth"});
+// }
+
+//btn.addEventListener('click', handleButtonClick);
+//refs.loadMore.addEventListener('click', handleButtonClick);
