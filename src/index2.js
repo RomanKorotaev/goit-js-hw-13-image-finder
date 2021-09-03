@@ -52,8 +52,7 @@ function clearPhotosGallary() {
 
 function scrollGallery() {
      refs.loadMore.scrollIntoView({
-   // top: refs.galleryList.scrollHeight,
-    behavior: 'smooth',
-    block: 'end',
+     behavior: 'smooth',
+     block: 'end',
   });
 }
