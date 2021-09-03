@@ -28,7 +28,11 @@ function onSearch(e) {
 
 function onLoadMore() {
   //  imageApiService.fetchImages().then(hits => console.log(hits));
-    imageApiService.fetchImages().then(onePhotoCardMarkUp);
+    imageApiService.fetchImages()
+        .then(onePhotoCardMarkUp)
+        .then(() => {
+      scrollGallery();
+    });
 }
 
  
@@ -44,3 +48,12 @@ refs.gallery.insertAdjacentHTML('beforeend', onePhotoCardTpl(hits))
 function clearPhotosGallary() {
     refs.gallery.innerHTML = '';
  }
+
+
+function scrollGallery() {
+     refs.loadMore.scrollIntoView({
+   // top: refs.galleryList.scrollHeight,
+    behavior: 'smooth',
+    block: 'end',
+  });
+}
