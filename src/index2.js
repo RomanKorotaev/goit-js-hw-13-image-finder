@@ -15,10 +15,14 @@ refs.loadMore.addEventListener('click', onLoadMore);
 function onSearch(e) {
     e.preventDefault();
 
+    //clearPhotosGallary();
     imageApiService.query = e.currentTarget.elements.query.value;
     imageApiService.resetPage();
-    imageApiService.fetchImages().then(hits => console.log(hits));
-   imageApiService.fetchImages().then(onePhotoCardMarkUp);
+    // imageApiService.fetchImages().then(hits => console.log(hits));
+    imageApiService.fetchImages().then(hits=>{
+        clearPhotosGallary();
+        onePhotoCardMarkUp(hits);
+    });
 }
  
 
@@ -33,7 +37,10 @@ function onePhotoCardMarkUp(hits) {
     
 //Рендерим разментку из шаблона onePhotoCardTpl.hbs через функцию onePhotoCardTpl () . Был установлен пакет с шаблонизатором  "parcel-plugin-handlebars-precompile": "^1.0.2"
 refs.gallery.insertAdjacentHTML('beforeend', onePhotoCardTpl(hits))
-
   
-    
 }
+
+
+function clearPhotosGallary() {
+    refs.gallery.innerHTML = '';
+ }
