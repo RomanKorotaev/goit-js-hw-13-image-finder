@@ -12,14 +12,15 @@ const BASE_URL = 'pixabay.com/api'
     
      
      fetchImages() {
-         console.log(this);
-         fetch(`https://${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY_API} `)
-             .then(response => response.json())
-             .then(data => {
-                 //this.page += 1;
-                 this.incerementPage();
-                 console.log (data)
-             });
+            return fetch(`https://${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY_API} `)
+                    .then(response => response.json())
+                    .then(data => {
+                        //console.log(data)
+                        //this.page += 1;
+                        this.incerementPage();
+                        
+                        return  data.hits;
+                    });
     } 
 
      get query() {
@@ -34,6 +35,10 @@ const BASE_URL = 'pixabay.com/api'
          this.page += 1;
       }
 
+     resetPage() {
+         this.page = 1;
+     }
+
 }
  
-export default ImageApiService
+export default ImageApiService;
