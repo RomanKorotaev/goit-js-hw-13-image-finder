@@ -21,7 +21,7 @@ const refs = {
     searchForm: document.querySelector('#search-form'),
     input: document.querySelector('#input'),
     gallery: document.querySelector('.gallery'),
- loadMore: document.querySelector('[data-action="load-more"]')
+    loadMore: document.querySelector('[data-action="load-more"]')
     //loadMore: document.querySelector('#loadMore')
     
 }
@@ -33,14 +33,10 @@ function onSearch(e) {
     e.preventDefault();
 
    imageApiService.query= e.currentTarget.elements.query.value;
-   imageApiService.fetchImages(searchQuery);
+   imageApiService.fetchImages();
 }
  
 
 function onLoadMore() {
-    imageApiService.fetchImages(searchQuery);
-
-    //  fetch(`https://${BASE_URL}/?image_type=photo&orientation=horizontal&q=${searchQuery}&page=${pageCounter}&per_page=12&key=${KEY_API} `)
-    // .then(response => response.json())
-    // .then (console.log)
+    imageApiService.fetchImages();
  }
