@@ -15,14 +15,6 @@ const refs = {
 
 let pageCounter = 1;
 
-//---------------------
-
-function handleButtonClick() {
-  refs.loadMore.scrollIntoView({block: "end", behavior: "smooth"});
-   // btm2.scrollIntoView({block: "end", behavior: "smooth"});
-}
-//---------------------
-
 
  // Пример запроса на бекенд через  библиотеку axios: npm install axios
  // сначала установить ее через коменду npm install, а потом экспортируем в файл index.js: import axios from 'axios';
@@ -42,7 +34,7 @@ const hndlerSubmit = (event) => {
         console.log (' typeof axiosPrpmice', typeof axiosPrpmice)
      }
     
-    scrollingWithDelay();
+   // scrollingWithDelay();
     
 }
 
@@ -63,6 +55,19 @@ function renderCollection(arr) {
 
 refs.searchForm.addEventListener('submit', hndlerSubmit);
 refs.loadMore.addEventListener('click', hndlerSubmit);
+
+
+
+//---------------------
+
+function handleButtonClick() {
+  refs.loadMore.scrollIntoView({block: "end", behavior: "smooth"});
+   // btm2.scrollIntoView({block: "end", behavior: "smooth"});
+}
+//---------------------
+
+
+
 
 //console.log("TEST: ", hndlerSubmit('click'));
 

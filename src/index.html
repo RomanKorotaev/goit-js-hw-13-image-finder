@@ -16,6 +16,7 @@
 
     <form class="search-form" id="search-form">
       <input type="text" name="query" autocomplete="off" placeholder="Search images..." id="input"/>
+      <button type="submit" id="searchBtn">Search</button>
     </form>
 
     <ul class="gallery">
@@ -23,13 +24,14 @@
     </ul>
 
     <div id="loadMoreContainer"> 
-        <button type="submit" id="loadMore" class="loadMore">Load More</button>
+        <button type="submit"  data-action="load-more" id="loadMore" >Load More</button>
     </div>
 
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. 
     <include src="./partials/example.html"></include>  -->
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script>-->
+      <script src="./index2.js"></script>
   </body>
 </html>
