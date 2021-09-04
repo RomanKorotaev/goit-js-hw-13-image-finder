@@ -1,20 +1,73 @@
 body {
-  background-color: rgb(230, 222, 222);
+  background-color: rgb(229, 224, 231);
 }
 
 ul {
   list-style: none;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+h1 {
+  text-align: center;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.inputLine {
+  display: block;
+
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.commonBtn {
+  display: block;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+
+  color: white;
+  background: rgb(51, 110, 240);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  margin: 0 auto;
+  padding: 10px 32px;
+}
+
+.commonBtn:hover,
+.commonBtn:focus {
+  background: rgb(12, 83, 235);
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+/*  Это патерн для cкрытия кноаки "Load More"*/
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }

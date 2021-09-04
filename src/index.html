@@ -10,14 +10,19 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
+    <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css" rel="stylesheet" type="text/css" />
+    
   </head>
   <body>
     <h1> Homework-13 (goit-js-hw-13-image-finder) </h1>
 
     <form class="search-form" id="search-form">
-      <input type="text" name="query" autocomplete="off" placeholder="Search images..." id="input"/>
-      <button type="submit" id="searchBtn">Search</button>
+      <input class="inputLine" type="text" name="query" autocomplete="off" placeholder="Search images..." id="input"/>
+      <button type="submit" id="searchBtn" class="commonBtn">Search</button>
     </form>
 
     <ul class="gallery">
@@ -25,7 +30,7 @@
     </ul>
 
     <div id="loadMoreContainer"> 
-        <button type="submit"  data-action="load-more" id="loadMore" >Load More</button>
+        <button type="submit" class="commonBtn visually-hidden" data-action="load-more" id="loadMore" >Load More</button>
     </div>
 
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. 
