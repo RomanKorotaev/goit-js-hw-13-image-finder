@@ -53,11 +53,11 @@ img {
 
 .gallery {
   display: grid;
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns: 300px 300px 300px;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 /*  Это патерн для cкрытия кноаки "Load More"*/
