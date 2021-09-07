@@ -110,7 +110,7 @@ function showLightBoxWithBigImg(event) {
     if (imageItem.classList.contains('gallery-image')) {
         const instance = basicLightbox.create(`<img src="${imageItem.dataset.source}" >` );
 
-        console.log('Сработала функция  showLightBox')
+        console.log('Сработала функция  showLightBoxWithBigImg')
         instance.show()
     }
  
