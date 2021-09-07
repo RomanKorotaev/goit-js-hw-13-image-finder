@@ -4,6 +4,8 @@ import refs from './js/refs';
 import axios from 'axios';
 import onePhotoCardTpl from './templates/onePhotoCardTpl.hbs';
 
+import * as basicLightbox from 'basiclightbox'
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css'
 
 import { alert, info, defaultModules } from '@pnotify/core/dist/PNotify';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -89,3 +91,27 @@ function scrollGallery() {
      block: 'end',
   });
 }
+
+//  // ------------ функция открытия модального окна через библиотеку basiclightbox
+
+// //Получаем ссылку на галерею. Отлавливаем клик по мышке. Если клик был сделан на картинку,
+// // т.е. на DOM-элемент с классом gallery-image, то заменяем в теге  <img> заменяем src
+// // на адрес большой картинки. Если клик на картинку не попал - то basiclightbox не вызываем, не запускаем
+
+
+refs.gallery.addEventListener ('click', showLightBoxWithBigImg)
+
+
+
+function showLightBoxWithBigImg(event) {
+  const imageItem = event.target;
+  console.log("imageItem = event.target : ", imageItem)
+  
+    if (imageItem.classList.contains('gallery-image')) {
+        const instance = basicLightbox.create(`<img src="${imageItem.dataset.source}" >` );
+
+        console.log('Сработала функция  showLightBox')
+        instance.show()
+    }
+ 
+ }
